@@ -2,8 +2,22 @@
   "project": "AI Virtual Try-On",
   "module": "Dataset Preparation (Module 2)",
   "use_case": "Personal and non-commercial experimentation only",
-  "total_pairs_planned": 24,
-  "categories": ["shirt", "dress", "trousers", "jacket"],
+  "total_pairs": 12,
+  "categories_available": ["shirt"],
+  "categories_missing": ["dress", "trousers", "jacket"],
+  "dataset_source": "VITON-HD (test split)",
+  "dataset_license": "CC BY-NC 4.0",
+  "image_format": "JPEG",
+  "image_resolution": "768x1024",
+  "image_mode": "RGB",
+  "counts": {
+    "person_images": 6,
+    "clothing_images": 12,
+    "shirts_tops": 12,
+    "dresses": 0,
+    "trousers": 0,
+    "jackets_outerwear": 0
+  },
   "target_counts": {
     "person_images": "20-30",
     "clothing_images": "20-30",
@@ -12,12 +26,22 @@
     "trousers": "4-6 each",
     "jackets_outerwear": "4-6 each"
   },
+  "limitations": [
+    "Only VITON-HD test split was available; could not obtain Dress Code (requires institutional email), OpenVTON, or OmniView due to no-download constraint.",
+    "VITON-HD contains only upper-body garments (tops/shirts). No dresses, trousers, or jackets available in the downloaded data.",
+    "Only 6 person images and 12 clothing images available (below the 20-30 target).",
+    "All images are from the VITON-HD test split; no separate train split was downloaded.",
+    "Person images are all frontal-view women wearing tops.",
+    "Clothing images are all flat-lay or on-model upper-body garments.",
+    "No duplicate or corrupted images found.",
+    "All images validated as readable JPEG files at 768x1024 resolution."
+  ],
   "pairs": [
     {
       "pair_id": "P01",
       "category": "shirt",
-      "person_image": "dataset/people/person_01.jpg",
-      "clothing_image": "dataset/clothing/shirt_01.jpg",
+      "person_image": "dataset/people/00891_00.jpg",
+      "clothing_image": "dataset/clothing/01260_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
       "pair_type": "standard"
@@ -25,8 +49,8 @@
     {
       "pair_id": "P02",
       "category": "shirt",
-      "person_image": "dataset/people/person_02.jpg",
-      "clothing_image": "dataset/clothing/shirt_02.jpg",
+      "person_image": "dataset/people/03615_00.jpg",
+      "clothing_image": "dataset/clothing/01430_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
       "pair_type": "standard"
@@ -34,8 +58,8 @@
     {
       "pair_id": "P03",
       "category": "shirt",
-      "person_image": "dataset/people/person_03.jpg",
-      "clothing_image": "dataset/clothing/shirt_03.jpg",
+      "person_image": "dataset/people/07445_00.jpg",
+      "clothing_image": "dataset/clothing/02783_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
       "pair_type": "standard"
@@ -43,8 +67,8 @@
     {
       "pair_id": "P04",
       "category": "shirt",
-      "person_image": "dataset/people/person_04.jpg",
-      "clothing_image": "dataset/clothing/shirt_04.jpg",
+      "person_image": "dataset/people/07573_00.jpg",
+      "clothing_image": "dataset/clothing/03751_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
       "pair_type": "standard"
@@ -52,8 +76,8 @@
     {
       "pair_id": "P05",
       "category": "shirt",
-      "person_image": "dataset/people/person_05.jpg",
-      "clothing_image": "dataset/clothing/shirt_05.jpg",
+      "person_image": "dataset/people/08909_00.jpg",
+      "clothing_image": "dataset/clothing/06429_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
       "pair_type": "standard"
@@ -61,8 +85,8 @@
     {
       "pair_id": "P06",
       "category": "shirt",
-      "person_image": "dataset/people/person_06.jpg",
-      "clothing_image": "dataset/clothing/shirt_06.jpg",
+      "person_image": "dataset/people/10549_00.jpg",
+      "clothing_image": "dataset/clothing/06802_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
       "pair_type": "standard"
@@ -70,165 +94,57 @@
     {
       "pair_id": "P07",
       "category": "shirt",
-      "person_image": "dataset/people/person_07.jpg",
-      "clothing_image": "dataset/clothing/shirt_07.jpg",
+      "person_image": "dataset/people/00891_00.jpg",
+      "clothing_image": "dataset/clothing/07429_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
-      "pair_type": "standard"
+      "pair_type": "cross-pair (generalization test)"
     },
     {
       "pair_id": "P08",
       "category": "shirt",
-      "person_image": "dataset/people/person_08.jpg",
-      "clothing_image": "dataset/clothing/shirt_08.jpg",
+      "person_image": "dataset/people/03615_00.jpg",
+      "clothing_image": "dataset/clothing/08348_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
-      "pair_type": "standard"
+      "pair_type": "cross-pair (generalization test)"
     },
     {
       "pair_id": "P09",
-      "category": "dress",
-      "person_image": "dataset/people/person_09.jpg",
-      "clothing_image": "dataset/clothing/dress_01.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P10",
-      "category": "dress",
-      "person_image": "dataset/people/person_10.jpg",
-      "clothing_image": "dataset/clothing/dress_02.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P11",
-      "category": "dress",
-      "person_image": "dataset/people/person_11.jpg",
-      "clothing_image": "dataset/clothing/dress_03.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P12",
-      "category": "dress",
-      "person_image": "dataset/people/person_12.jpg",
-      "clothing_image": "dataset/clothing/dress_04.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P13",
-      "category": "trousers",
-      "person_image": "dataset/people/person_13.jpg",
-      "clothing_image": "dataset/clothing/trousers_01.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P14",
-      "category": "trousers",
-      "person_image": "dataset/people/person_14.jpg",
-      "clothing_image": "dataset/clothing/trousers_02.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P15",
-      "category": "trousers",
-      "person_image": "dataset/people/person_15.jpg",
-      "clothing_image": "dataset/clothing/trousers_03.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P16",
-      "category": "trousers",
-      "person_image": "dataset/people/person_16.jpg",
-      "clothing_image": "dataset/clothing/trousers_04.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P17",
-      "category": "jacket",
-      "person_image": "dataset/people/person_17.jpg",
-      "clothing_image": "dataset/clothing/jacket_01.jpg",
-      "source_dataset": "OmniView",
-      "license": "Respective owners (non-commercial)",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P18",
-      "category": "jacket",
-      "person_image": "dataset/people/person_18.jpg",
-      "clothing_image": "dataset/clothing/jacket_02.jpg",
-      "source_dataset": "OmniView",
-      "license": "Respective owners (non-commercial)",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P19",
-      "category": "jacket",
-      "person_image": "dataset/people/person_19.jpg",
-      "clothing_image": "dataset/clothing/jacket_03.jpg",
-      "source_dataset": "OmniView",
-      "license": "Respective owners (non-commercial)",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P20",
-      "category": "jacket",
-      "person_image": "dataset/people/person_20.jpg",
-      "clothing_image": "dataset/clothing/jacket_04.jpg",
-      "source_dataset": "OmniView",
-      "license": "Respective owners (non-commercial)",
-      "pair_type": "standard"
-    },
-    {
-      "pair_id": "P21",
       "category": "shirt",
-      "person_image": "dataset/people/person_21.jpg",
-      "clothing_image": "dataset/clothing/shirt_09.jpg",
+      "person_image": "dataset/people/07445_00.jpg",
+      "clothing_image": "dataset/clothing/09933_00.jpg",
       "source_dataset": "VITON-HD",
       "license": "CC BY-NC 4.0",
       "pair_type": "cross-pair (generalization test)"
     },
     {
-      "pair_id": "P22",
-      "category": "dress",
-      "person_image": "dataset/people/person_22.jpg",
-      "clothing_image": "dataset/clothing/dress_05.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
+      "pair_id": "P10",
+      "category": "shirt",
+      "person_image": "dataset/people/07573_00.jpg",
+      "clothing_image": "dataset/clothing/11028_00.jpg",
+      "source_dataset": "VITON-HD",
+      "license": "CC BY-NC 4.0",
       "pair_type": "cross-pair (generalization test)"
     },
     {
-      "pair_id": "P23",
-      "category": "trousers",
-      "person_image": "dataset/people/person_23.jpg",
-      "clothing_image": "dataset/clothing/trousers_05.jpg",
-      "source_dataset": "Dress Code / OpenVTON",
-      "license": "Non-commercial academic / CC BY-NC 4.0",
+      "pair_id": "P11",
+      "category": "shirt",
+      "person_image": "dataset/people/08909_00.jpg",
+      "clothing_image": "dataset/clothing/11351_00.jpg",
+      "source_dataset": "VITON-HD",
+      "license": "CC BY-NC 4.0",
       "pair_type": "cross-pair (generalization test)"
     },
     {
-      "pair_id": "P24",
-      "category": "jacket",
-      "person_image": "dataset/people/person_24.jpg",
-      "clothing_image": "dataset/clothing/jacket_05.jpg",
-      "source_dataset": "OmniView",
-      "license": "Respective owners (non-commercial)",
+      "pair_id": "P12",
+      "category": "shirt",
+      "person_image": "dataset/people/10549_00.jpg",
+      "clothing_image": "dataset/clothing/11791_00.jpg",
+      "source_dataset": "VITON-HD",
+      "license": "CC BY-NC 4.0",
       "pair_type": "cross-pair (generalization test)"
     }
   ],
-  "notes": "Replace filenames with actual downloaded image names. Cross-pairs (P21-P24) intentionally mix different person-clothing combinations to test model generalization. All datasets are non-commercial only — do not use commercially."
+  "notes": "All pairs use actual downloaded VITON-HD test split images. Person images: 6, Clothing images: 12 (all shirts/tops). Cross-pairs (P07-P12) test generalization by pairing each person with a different shirt. Dresses, trousers, and jackets are not available from the downloaded dataset. All datasets are non-commercial only (CC BY-NC 4.0) — do not use commercially."
 }

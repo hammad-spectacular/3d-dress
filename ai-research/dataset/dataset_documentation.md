@@ -23,7 +23,7 @@ ai-research/dataset/
 - `dataset/clothing/` — Place clothing images here. These are the garments (shirts, dresses, trousers, jackets).
 - `dataset/test_pairs/` — Place pair definitions and reference outputs here.
 
-> **Note:** The image files themselves are NOT included in this repository. You must download them manually from the sources listed below. I cannot download binary image files for you. See Section 5 for download instructions.
+> **Status (as of Module 2 completion):** Images have been downloaded from VITON-HD test split and placed in the respective folders. See Section 10 for actual dataset status.
 
 ---
 
@@ -310,10 +310,101 @@ Create this file at `ai-research/dataset/test_pairs/test_pairs.json`:
 
 ## 9. Next Steps (Pending Your Approval)
 
-1. Download images from the recommended datasets using the instructions in Section 5.
-2. Place person images in `ai-research/dataset/people/` and clothing images in `ai-research/dataset/clothing/`.
-3. Create `ai-research/dataset/test_pairs/test_pairs.json` using the template in Section 7.
-4. Optionally place reference try-on outputs in `ai-research/dataset/test_pairs/` for comparison.
-5. Report back once images are in place — then we can proceed to Module 3 (prototype development).
+Images have been downloaded and placed. Test pairs have been created. Report back when ready to proceed to Module 3 (prototype development).
 
-I am stopping here and awaiting your approval before proceeding.
+---
+
+## 10. Actual Dataset Status (as of Module 2 Completion)
+
+### 10.1 Images Downloaded and Placed
+
+| Folder | Files | Source |
+|--------|-------|--------|
+| `dataset/people/` | 6 person images + 1 README.txt | VITON-HD test split (`3d clothing\test\test\image\`) |
+| `dataset/clothing/` | 12 clothing images + 1 README.txt | VITON-HD test split (`3d clothing\test\test\cloth\`) |
+| `dataset/test_pairs/` | test_pairs.json + 1 README.txt | Created from actual filenames |
+
+### 10.2 Image Validation Results
+
+All images validated using PIL/Pillow — no corruption, no duplicates, all readable.
+
+**People images (6 total):**
+
+| Filename | Format | Dimensions | Mode | Size |
+|----------|--------|------------|------|------|
+| 00891_00.jpg | JPEG | 768 × 1024 | RGB | 105 KB |
+| 03615_00.jpg | JPEG | 768 × 1024 | RGB | 142 KB |
+| 07445_00.jpg | JPEG | 768 × 1024 | RGB | 128 KB |
+| 07573_00.jpg | JPEG | 768 × 1024 | RGB | 107 KB |
+| 08909_00.jpg | JPEG | 768 × 1024 | RGB | 181 KB |
+| 10549_00.jpg | JPEG | 768 × 1024 | RGB | 133 KB |
+
+**Clothing images (12 total):**
+
+| Filename | Format | Dimensions | Mode | Size |
+|----------|--------|------------|------|------|
+| 01260_00.jpg | JPEG | 768 × 1024 | RGB | 178 KB |
+| 01430_00.jpg | JPEG | 768 × 1024 | RGB | 88 KB |
+| 02783_00.jpg | JPEG | 768 × 1024 | RGB | 295 KB |
+| 03751_00.jpg | JPEG | 768 × 1024 | RGB | 212 KB |
+| 06429_00.jpg | JPEG | 768 × 1024 | RGB | 147 KB |
+| 06802_00.jpg | JPEG | 768 × 1024 | RGB | 91 KB |
+| 07429_00.jpg | JPEG | 768 × 1024 | RGB | 105 KB |
+| 08348_00.jpg | JPEG | 768 × 1024 | RGB | 211 KB |
+| 09933_00.jpg | JPEG | 768 × 1024 | RGB | 87 KB |
+| 11028_00.jpg | JPEG | 768 × 1024 | RGB | 126 KB |
+| 11351_00.jpg | JPEG | 768 × 1024 | RGB | 69 KB |
+| 11791_00.jpg | JPEG | 768 × 1024 | RGB | 114 KB |
+
+### 10.3 Actual Counts vs Target
+
+| Category | Target | Actual | Status |
+|----------|--------|--------|--------|
+| Person images | 20–30 | 6 | ⚠️ Below target |
+| Clothing images | 20–30 | 12 | ⚠️ Below target |
+| Shirts / tops | 8–10 | 12 | ✅ Exceeds target |
+| Dresses | 4–6 | 0 | ❌ Not available |
+| Trousers / lower body | 4–6 | 0 | ❌ Not available |
+| Jackets / outerwear | 4–6 | 0 | ❌ Not available |
+| **Total pairs** | 24 | 12 | ⚠️ Below target |
+
+### 10.4 Test Pairs Created (12 total)
+
+| Pair ID | Person | Clothing | Category | Pair Type |
+|---------|--------|----------|----------|-----------|
+| P01 | 00891_00.jpg | 01260_00.jpg | Shirt | Standard |
+| P02 | 03615_00.jpg | 01430_00.jpg | Shirt | Standard |
+| P03 | 07445_00.jpg | 02783_00.jpg | Shirt | Standard |
+| P04 | 07573_00.jpg | 03751_00.jpg | Shirt | Standard |
+| P05 | 08909_00.jpg | 06429_00.jpg | Shirt | Standard |
+| P06 | 10549_00.jpg | 06802_00.jpg | Shirt | Standard |
+| P07 | 00891_00.jpg | 07429_00.jpg | Shirt | Cross-pair |
+| P08 | 03615_00.jpg | 08348_00.jpg | Shirt | Cross-pair |
+| P09 | 07445_00.jpg | 09933_00.jpg | Shirt | Cross-pair |
+| P10 | 07573_00.jpg | 11028_00.jpg | Shirt | Cross-pair |
+| P11 | 08909_00.jpg | 11351_00.jpg | Shirt | Cross-pair |
+| P12 | 10549_00.jpg | 11791_00.jpg | Shirt | Cross-pair |
+
+All pairs recorded in `dataset/test_pairs/test_pairs.json`.
+
+### 10.5 Limitations
+
+1. **Only VITON-HD test split available.** Could not obtain Dress Code (requires institutional email), OpenVTON, or OmniView because no additional downloads were permitted.
+2. **Only shirts/tops available.** VITON-HD contains only upper-body garments. No dresses, trousers, or jackets in the downloaded data.
+3. **Below target counts.** Only 6 person images and 12 clothing images (target was 20–30 each).
+4. **All from one dataset.** No cross-dataset variety; all images share the same source characteristics (frontal-view women, upper-body garments, 768×1024 resolution).
+5. **No masks or annotations included.** Only raw person and clothing images were copied; cloth-mask, image-parse, and openpose files from the source were not included.
+
+### 10.6 License
+
+All images are from VITON-HD, licensed under **CC BY-NC 4.0** (Creative Commons Attribution-NonCommercial 4.0).
+- ✅ Permitted: Personal use, research, experimentation, academic publication
+- ❌ Not permitted: Commercial use, commercial products, paid services
+- Required: Attribution by citing the VITON-HD paper (Choi et al., CVPR 2021)
+
+Since this project is **personal and non-commercial**, this license is acceptable.
+
+### 10.7 Recommendation for Module 3
+
+With 6 person images and 12 shirt images, the prototype can be developed and tested using the 12 defined pairs. All pairs are shirt-category try-ons. If dresses, trousers, or jackets are needed later, additional datasets would need to be downloaded (subject to your approval).
+
