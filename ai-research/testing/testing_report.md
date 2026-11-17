@@ -199,9 +199,66 @@
 
 ---
 
+## 8. Pipeline Testing Results (No GPU Required)
+
+**Test Date:** November 17, 2026  
+**Test Script:** `ai-research/testing/test_pipeline.py`  
+**GPU Required:** No  
+**Model Weights Required:** No  
+
+### 8.1 Test Results Summary
+
+| Metric | Value |
+|--------|-------|
+| Total test scenarios | 24 |
+| Passed | 24 |
+| Failed | 0 |
+| GPU required | No |
+| Model weights required | No |
+
+### 8.2 Test Coverage
+
+| Test Area | Scenarios | Status |
+|-----------|-----------|--------|
+| Image validation (valid images) | 3 | ✅ Passed |
+| Image validation (file not found) | 1 | ✅ Passed |
+| Image validation (corrupted file) | 1 | ✅ Passed |
+| Image validation (unsupported format) | 1 | ✅ Passed |
+| Image validation (too small) | 1 | ✅ Passed |
+| Preprocessing (RGB conversion) | 1 | ✅ Passed |
+| Preprocessing (resize large image) | 1 | ✅ Passed |
+| Preprocessing (aspect ratio) | 1 | ✅ Passed |
+| Pipeline (no model adapter) | 1 | ✅ Passed |
+| Pipeline (request/result structure) | 2 | ✅ Passed |
+| API interface structure | 5 | ✅ Passed |
+| Kaggle notebook structure | 4 | ✅ Passed |
+
+### 8.3 What Is Functional (No GPU)
+
+| Component | Status | Notes |
+|-----------|--------|-------|
+| Image validation | ✅ Functional | Validates format, size, corruption, dimensions |
+| Image preprocessing | ✅ Functional | RGB conversion, resize, aspect ratio preservation |
+| Pipeline orchestration | ✅ Functional | Validate → preprocess → infer → postprocess flow |
+| Error handling | ✅ Functional | ValidationError, PreprocessingError, InferenceError, PostprocessingError |
+| API interface definition | ✅ Defined | REST endpoints documented in api_interface.md |
+| Kaggle notebook | ✅ Defined | Ready to execute on Kaggle T4 GPU |
+
+### 8.4 What Requires GPU Access
+
+| Component | Status | Required For |
+|-----------|--------|--------------|
+| FASHN VTON v1.5 inference | ⏸️ Blocked | Model weights (~2 GB) + GPU (8GB VRAM recommended) |
+| IDM-VTON inference | ⏸️ Blocked | Model weights + GPU (>18GB VRAM) |
+| CatVTON inference | ⏸️ Blocked | Model weights + GPU (<8GB VRAM claimed) |
+
+---
+
 ## 9. Next Steps (Pending Approval)
 
-1. Select the recommended model for prototype development
-2. Proceed to Milestone 4: First Successful AI Try-On
-3. Generate the first try-on image using the selected model
-4. Verify output quality against evaluation criteria
+1. Obtain Hugging Face access token or Kaggle GPU access (phone verification pending)
+2. Run Kaggle notebook (`ai-research/prototype/kaggle_fashn_vton.ipynb`) for actual inference
+3. Generate first try-on image using FASHN VTON v1.5 on cloud GPU
+4. Proceed to Milestone 4: First Successful AI Try-On
+5. Build the working prototype application
+
